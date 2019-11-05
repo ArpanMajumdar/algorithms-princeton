@@ -47,4 +47,20 @@ public class LinkedStackTest {
     //
     stack.pop();
   }
+
+  @Test
+  public void testIterateOverStackItems() {
+    // Setup
+    Stack<Integer> stack = new ArrayStack<>();
+
+    // When
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+
+    // Then
+    stack.forEach(System.out::println);
+  }
 }

@@ -3,6 +3,8 @@ package com.arpan.algorithms.part1.week2.stack.impl;
 import com.arpan.algorithms.part1.week2.stack.Stack;
 import com.arpan.algorithms.part1.week2.stack.exception.StackUnderflowException;
 
+import java.util.Iterator;
+
 public class ArrayStack<T> implements Stack<T> {
 
   private final int INITIAL_CAPACITY = 1;
@@ -42,6 +44,26 @@ public class ArrayStack<T> implements Stack<T> {
     }
 
     return item;
+  }
+
+  @Override
+  public Iterator<T> iterator() {
+    return new Iterator<T>() {
+
+      private int currentIndex = 0;
+
+      @Override
+      public boolean hasNext() {
+        return currentIndex <= topIndex;
+      }
+
+      @Override
+      public T next() {
+        T item = stack[currentIndex];
+        currentIndex++;
+        return item;
+      }
+    };
   }
 
   private boolean isFull() {

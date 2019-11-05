@@ -1,5 +1,7 @@
 package com.arpan.algorithms.part1.week2.stack.impl;
 
+import com.arpan.algorithms.part1.week2.queue.Queue;
+import com.arpan.algorithms.part1.week2.queue.impl.LinkedQueue;
 import com.arpan.algorithms.part1.week2.stack.Stack;
 import com.arpan.algorithms.part1.week2.stack.exception.StackUnderflowException;
 import org.junit.Test;
@@ -46,5 +48,21 @@ public class ArrayStackTest {
 
     //
     stack.pop();
+  }
+
+  @Test
+  public void testIterateOverStackItems() {
+    // Setup
+    Stack<Integer> stack = new ArrayStack<>();
+
+    // When
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+
+    // Then
+    stack.forEach(System.out::println);
   }
 }
